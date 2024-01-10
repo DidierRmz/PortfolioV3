@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="row" id="root">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mt-3">
+                            <label for="">Nombre</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="mt-3">
+                            <label for="">Correo</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <button class="btn btn-primary w-100 mt-5 mb-5">Actualizar o Crear</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <button class="btn btn-primary">Crear nuevo usuario</button>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NOMBRE</th>
+                                <th>CORREO</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let root = document.getElementById("root");
+        let tBody = document.getElementById("tBody");
+
+        let resultado = fetch("https://memin.io/public/api/users")
+            .then(Response => {
+                return Response.json()
+            }).then(data => {
+                data = data.slice(0,100);
+                data.forEach(function (element) {
+
+                    let tableRow = document.createElement('tr');
+                    tBody.appendChild(tableRow);
+
+                    let colId = document.createElement('td');
+                    colId.innerText = element.id;
+                    tableRow.appendChild(colId);
+
+                    let colName = document.createElement('td');
+                    colName.innerText = element.name;
+                    tableRow.appendChild(colName);
+
+                    let colEmail = document.createElement('td');
+                    colEmail.innerText = element.email;
+                    tableRow.appendChild(colEmail);
+
+                    let button_editar = document.createElement("button");
+                    button_editar.classList.add("btn", "btn-warning","btn-sm","gap-2");
+                    button_editar.innerText= "Eliminar";
+                    tableRow.appendChild(button_editar);
+  
+                    let button_actualizar = document.createElement("button");
+                    button_actualizar.classList.add("btn", "btn-info","btn-sm","gap-2");
+                    button_actualizar.innerText= "Actualizar";
+                    tableRow.appendChild(button_actualizar);
+  
+                    let button_detalles = document.createElement("button");
+                    button_detalles.classList.add("btn", "btn-danger","btn-sm","gap-2");
+                    button_detalles.innerText= "Ver detalles";
+                    tableRow.appendChild(button_detalles);
+                });
+
+            });
+    </script>
+</body>
+
+</html>

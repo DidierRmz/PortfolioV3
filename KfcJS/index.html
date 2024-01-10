@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        .theme-dark {
+            background-color: dimgray;
+        }
+
+        .theme-dark h2 {
+            color: white;
+        }
+
+        .theme-dark p {
+            color: white;
+        }
+
+        .theme-dark span {
+            color: white;
+        }
+
+        .theme-dark .card {
+            background-color: #333;
+        }
+
+        .theme-dark button.btn.btn-buy {
+            background-color: dimgray;
+        }
+
+        .theme-dark button.btn.btn-buy:hover {
+            background-color: white;
+            color: #333;
+            border: 1px solid dimgray;
+        }
+
+        .theme-dark .form-select {
+            background-color: dimgray;
+            color: white;
+        }
+
+        .theme-dark .footer {
+            background-color: #333;
+        }
+
+        /*Dark blue*/
+        .theme-darkBlue {
+            background-color: #00063f;
+        }
+
+        .theme-darkBlue h2 {
+            color: #e4f1ff;
+        }
+
+        .theme-darkBlue p {
+            color: #e4f1ff;
+        }
+
+        .theme-darkBlue span {
+            color: #e4f1ff;
+        }
+
+        .theme-darkBlue .card {
+            background-color: #0016b0;
+        }
+
+        .theme-darkBlue button.btn.btn-buy {
+            background-color: #00063f;
+        }
+
+        .theme-darkBlue button.btn.btn-buy:hover {
+            background-color: #e4f1ff;
+            color: #00063f;
+            border: 1px solid #00063f;
+        }
+
+        .theme-darkBlue .form-select {
+            background-color: #0016b0;
+            color: #e4f1ff;
+        }
+
+        .theme-darkBlue .footer {
+            background-color: #0016b0;
+        }
+    </style>
+    <title>KFC</title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+    <script>
+
+        const burgers = [{
+            image: "images/hamburguesa-1.webp",
+            precioBurger: "$ 8.900",
+            nombreBurger: "BBQ Crunch",
+            descripcionBurguer: "1 Sándwich BBQ Crunch (1 Filete de pollo apando)",
+        },
+        {
+            image: "images/hamburguesa-2.webp",
+            precioBurger: "$ 15.900",
+            nombreBurger: "Kentucky Sandwich",
+            descripcionBurguer: "1 Kentucky hamburguesa / Sándwich (1 Filete de pechuga de pollo apanado, pepinillos,...",
+        },
+        {
+            image: "images/hamburguesa-3.webp",
+            precioBurger: "$ 15.900",
+            nombreBurger: "Combo BBQ Crunch",
+            descripcionBurguer: "1 Sándwich BBQ Crunch (1 Filete de pollo apando) + 1 Papa Pequeña + Gaseosa PET...",
+        },
+        {
+            image: "images/hamburguesa-4.webp",
+            precioBurger: "$ 16.900",
+            nombreBurger: "Kentucky Coronel Sandwich",
+            descripcionBurguer: "1 Kentucky Coronel hamburguesa / Sándwich (1 Filete de pechuga de pollo apando, Ensalada...",
+        },
+        {
+            image: "images/hamburguesa-5.webp",
+            precioBurger: "$ 21.900",
+            nombreBurger: "Combo Kentucky Sandwich",
+            descripcionBurguer: "1 Kentucky hamburguesa / Sándwich (1 Filete de pechuga de pollo apanado, pepinillos,...",
+        },
+        {
+            image: "images/hamburguesa-6.webp",
+            precioBurger: "$ 22.900",
+            nombreBurger: "Combo Kentucky Coronel Sándwich",
+            descripcionBurguer: "1 Kentucky hamburguesa / Sándwich (1 Filete de pechuga de pollo apanado, pepinillos,...)",
+        },
+        {
+            image: "images/hamburguesa-7.webp",
+            precioBurger: "$ 23.900",
+            nombreBurger: "Sándwich Crispy BBQ",
+            descripcionBurguer: "1 Sándwich Crispy BBQ (1 Filete de pechiga extra grande, triple empanizado, cebolla crisp...)",
+        },
+        {
+            image: "images/hamburguesa-8.webp",
+            precioBurger: "$ 8.900",
+            nombreBurger: "Combo Sándwich Crispy BBQ",
+            descripcionBurguer: "1 Sándwich Crispy BBQ (1 Filete de pechuga extra grande, triple empanizado, cebolla crip...)",
+        }
+        ]
+
+        let root = document.getElementById("root");
+
+
+
+        //container HEADER
+        let containerHeader = document.createElement("div");
+        containerHeader.classList.add("container");
+        root.appendChild(containerHeader);
+
+        //row HEADER
+        let rowHeader = document.createElement("div");
+        rowHeader.classList.add("row");
+        containerHeader.appendChild(rowHeader);
+
+        //col HEADER
+        let colHeader = document.createElement("div");
+        colHeader.classList.add("col-md-12");
+        rowHeader.appendChild(colHeader);
+
+        //Header
+        let header = document.createElement("header");
+        header.classList.add("py-5");
+        colHeader.appendChild(header);
+
+        //img HEADER
+        let imgHeader = document.createElement("img");
+        imgHeader.setAttribute("src", "images/KFC_Logo.svg.png");
+        imgHeader.style.width = "30%";
+        header.appendChild(imgHeader);
+
+
+        //Selectores
+
+        // Container selector
+        let containerSelc = document.createElement("div");
+        containerSelc.classList.add("container");
+        root.appendChild(containerSelc);
+
+        // Row selector
+        let rowSelc = document.createElement("div");
+        rowSelc.classList.add("row");
+        containerSelc.appendChild(rowSelc);
+
+        // Col selector
+        let colSelc = document.createElement("div");
+        colSelc.classList.add("col-md-6");
+        rowSelc.appendChild(colSelc);
+
+        // Select element for theme
+        let themeSelect = document.createElement("select");
+        themeSelect.classList.add("form-select", "mb-3");
+        colSelc.appendChild(themeSelect);
+
+        //cicle theme
+        let themeOptions = ["Claro", "Oscuro", "DarkBlue"];
+        for (const option of themeOptions) {
+            let themeOption = document.createElement("option");
+            themeOption.value = option.toLowerCase();
+            themeOption.innerText = option;
+            themeSelect.appendChild(themeOption);
+        }
+
+
+
+        // Col selector2
+        let colSelc2 = document.createElement("div");
+        colSelc2.classList.add("col-md-6");
+        rowSelc.appendChild(colSelc2);
+
+
+        let languageSelect = document.createElement("select");
+        languageSelect.classList.add("form-select", "mb-3");
+        colSelc2.appendChild(languageSelect);
+
+        let languageOptions = ["Español", "Ingles"];
+        for (const option of languageOptions) {
+            let languageOption = document.createElement("option");
+            languageOption.value = option.toLowerCase();
+            languageOption.innerText = option;
+            languageSelect.appendChild(languageOption);
+        }
+
+        //container MAIN
+        let container = document.createElement("div");
+        container.classList.add("container");
+        root.appendChild(container);
+
+        //row MAIN
+        let row = document.createElement("div");
+        row.classList.add("row");
+        container.appendChild(row);
+
+
+        for (const burger of burgers) {
+
+            //col
+            let col = document.createElement("div");
+            col.classList.add("card-group", "col-md-3");
+            row.appendChild(col);
+
+            //card
+            let card = document.createElement("div");
+            card.classList.add("card", "mt-5", "mb-3", "p-3");
+            col.appendChild(card);
+
+            //img card
+            let img = document.createElement("img");
+            img.classList.add("img-fluid");
+            img.setAttribute("src", burger.image);
+            card.appendChild(img);
+
+            //card-body
+            let cardBody = document.createElement("div");
+            cardBody.classList.add("card-body");
+            card.appendChild(cardBody);
+
+            //Atributtes
+            let precioBurger = document.createElement("span");
+            precioBurger.innerText = burger.precioBurger;
+            cardBody.appendChild(precioBurger)
+
+            let nombreBurger = document.createElement("h2");
+            nombreBurger.innerHTML = burger.nombreBurger;
+            cardBody.appendChild(nombreBurger)
+
+            let descripcionBurguer = document.createElement("p");
+            descripcionBurguer.innerHTML = burger.descripcionBurguer;
+            cardBody.appendChild(descripcionBurguer)
+
+            //button
+            let buttonBuy = document.createElement("button");
+            buttonBuy.classList.add("btn", "btn-buy", "btn-danger", "mt-3");
+            buttonBuy.innerText = "Comprar";
+            card.appendChild(buttonBuy)
+        }
+
+        //let theme = document.getElementById("idTema");
+        themeSelect.addEventListener("change", cambiarTheme);
+
+
+        function cambiarTheme() {
+            if (themeSelect.value == "claro") {
+                document.body.classList.add("theme-light");
+                document.body.classList.remove("theme-dark");
+                document.body.classList.remove("theme-darkBlue");
+                localStorage.setItem("theme", themeSelect.value);
+            } else if (themeSelect.value == "oscuro") {
+                document.body.classList.add("theme-dark");
+                document.body.classList.remove("theme-light");
+                document.body.classList.remove("theme-darkBlue");
+                localStorage.setItem("theme", themeSelect.value);
+            } else {
+                document.body.classList.add("theme-darkBlue");
+                document.body.classList.remove("theme-light");
+                document.body.classList.remove("theme-dark");
+                localStorage.setItem("theme", themeSelect.value);
+            }
+        }
+
+        //container FOOTER
+        let containerFooter = document.createElement("div");
+        containerFooter.classList.add("bg-dark");
+        root.appendChild(containerFooter);
+
+        //container FOOTER
+        let rowFooter = document.createElement("div");
+        rowFooter.classList.add("row");
+        containerFooter.appendChild(rowFooter);
+
+        //col FOOTER
+        let colFooter = document.createElement("div");
+        colFooter.classList.add("col-md-12");
+        rowFooter.appendChild(colFooter);
+
+        //FOOTER
+        let footer = document.createElement("footer");
+        footer.classList.add("py-5","d-flex","justify-content-center");
+        colFooter.appendChild(footer);
+
+        //img FOOTER
+        let imgFooter = document.createElement("img");
+        imgFooter.classList.add("w-25");
+        imgFooter.setAttribute("src", "images/KFC-footer.png");
+        footer.appendChild(imgFooter);
+    </script>
+</body>
+
+</html>
